@@ -1,6 +1,4 @@
-package cl.praxis.desafioproveedores;
-
-import lombok.Getter;
+package connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
