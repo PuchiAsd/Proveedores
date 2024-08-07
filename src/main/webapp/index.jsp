@@ -17,31 +17,43 @@
     <br>
     <br>
     <div class="row">
-        <form action="providerservlet?action=insert" method="POST">
-            <label for="name" class="form-label">Nombre</label>
-            <input type="text" class="form-control" name="name" id="name" placeholder="Nombre" aria-label="Nombre" required>
+        <form action="providers?action=insert" method="POST">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" aria-label="Nombre" required>
 
             <label for="rut" class="form-label">Rut</label>
             <input type="text" class="form-control" name="rut"  id="rut" placeholder="Rut" aria-label="Rut" required>
 
-            <label for="address" class="form-label">Dirección</label>
-            <input type="text" class="form-control" name="address" id="address" placeholder="Dirección" aria-label="Dirección" required>
+            <label for="direccion" class="form-label">Dirección</label>
+            <input type="text" class="form-control" name="direccion" id="direccion" placeholder="Dirección" aria-label="Dirección" required>
 
-            <label for="email" class="form-label">Email</label>
-            <input type="text" class="form-control" name="email" id="email" placeholder="Email" aria-label="Email" required>
+            <label for="correo" class="form-label">Email</label>
+            <input type="text" class="form-control" name="correo" id="correo" placeholder="Email" aria-label="Email" required>
 
-            <label for="phoneNumber" class="form-label">Teléfono</label>
-            <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="Teléfono" aria-label="Teléfono" required>
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Teléfono" aria-label="Teléfono" required>
 
-            <label for="contact" class="form-label">Contácto</label>
-            <input type="text" class="form-control" name="contact" id="contact" placeholder="Contácto" aria-label="Contácto" required>
+            <label for="contacto" class="form-label">Contácto</label>
+            <input type="text" class="form-control" name="contacto" id="contacto" placeholder="Contácto" aria-label="Contácto" required>
 
-            <label for="phoneNumberContact" class="form-label">Número de Contacto</label>
-            <input type="text" class="form-control" name="phoneNumberContact" id="phoneNumberContact" placeholder="Número de Contácto" aria-label="Número de Contácto" required>
+            <label for="telefono_contacto" class="form-label">Número de Contacto</label>
+            <input type="text" class="form-control" name="telefono_contacto" id="telefono_contacto" placeholder="Número de Contácto" aria-label="Número de Contácto" required>
             <br>
             <button type="submit" class="btn btn-primary btn-lg" value="insertProvider">Ingresar</button>
         </form>
     </div>
+    <br>
+    <c:if test="${usuarioCreado != null}">
+        <c:choose>
+            <c:when test="${usuarioCreado}">
+                <div class="alert alert-success">${respMensaje}</div>
+            </c:when>
+            <c:otherwise>
+                <div class="alert alert-danger">${respMensaje}</div>
+            </c:otherwise>
+        </c:choose>
+    </c:if>
+
 </section>
 
 <script

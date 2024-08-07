@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProvidersImp implements IProvidersDao{
-    private static final String SELECT_ALL_USERS = "SELECT name, rut, address, mail, phone_number, contact, contact_number FROM providers";
-    private static final String INSERT_USER = "INSERT INTO providers(name, rut, address, mail, phone_number, contact, contact_number) VALUES(?,?,?,?,?,?,?)";
+    private static final String SELECT_ALL_USERS = "SELECT nombre, rut, direccion, correo, telefono, contacto, telefono_contacto FROM proveedores";
+    private static final String INSERT_USER = "INSERT INTO proveedores(nombre, rut, direccion, correo, telefono, contacto, telefono_contacto) VALUES(?,?,?,?,?,?,?)";
 
     @Override
     public List<UserProviderDto> getAllProvider() {
@@ -22,13 +22,13 @@ public class ProvidersImp implements IProvidersDao{
             ResultSet res = preparedStatement.executeQuery();
             while(res.next()){
                 UserProviderDto user = new UserProviderDto();
-                user.setNombre(res.getString("name"));
+                user.setNombre(res.getString("nombre"));
                 user.setRut(res.getString("rut"));
-                user.setDireccion(res.getString("address"));
-                user.setCorreo(res.getString("mail"));
-                user.setTelefono(res.getString("phone_number"));
-                user.setContacto(res.getString("contact"));
-                user.setTelefono_contacto(res.getString("contact_number"));
+                user.setDireccion(res.getString("direccion"));
+                user.setCorreo(res.getString("correo"));
+                user.setTelefono(res.getString("telefono"));
+                user.setContacto(res.getString("contacto"));
+                user.setTelefono_contacto(res.getString("telefono_contacto"));
                 providers.add(user);
             }
         }catch(SQLException e){

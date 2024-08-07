@@ -19,17 +19,21 @@ public class UserProviderServ extends HttpServlet {
     }
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         UserProviderDto user = new UserProviderDto();
-        user.setNombre(req.getParameter("name"));
+        user.setNombre(req.getParameter("nombre"));
         user.setRut(req.getParameter("rut"));
-        user.setDireccion(req.getParameter("address"));
-        user.setCorreo(req.getParameter("mail"));
-        user.setTelefono(req.getParameter("phoneNumber"));
-        user.setContacto(req.getParameter("contact"));
-        user.setTelefono_contacto(req.getParameter("contacNumber"));
+        user.setDireccion(req.getParameter("direccion"));
+        user.setCorreo(req.getParameter("correo"));
+        user.setTelefono(req.getParameter("telefono"));
+        user.setContacto(req.getParameter("contacto"));
+        user.setTelefono_contacto(req.getParameter("telefono_contacto"));
         Boolean resp = servProvider.insertUserProvider(user);
 
         if(!resp){
-            req.setAttribute("respNewUser","El Usuario no se pudo crear");
+            req.setAttribute("respMensaje","El Usuario no se pudo crear");
+            req.setAttribute("usuarioCreado", false);
+        }else {
+            req.setAttribute("respMensaje","Usuario creado con éxito!");
+            req.setAttribute("usuarioCreado", true);
         }
 
         req.setAttribute("providers_res", servProvider.getAllUserProviders());
